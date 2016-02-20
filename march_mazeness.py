@@ -595,6 +595,7 @@ def play():
             elif coordinates == (10, 10):       
                 line10[9] = "e"
                 print("You won!")  
+        elif coordinates[0] > 0 and coordinates[0] < 11 and coordinates[1] > 0 and coordinates[1] < 11 and coordinates != 
         else:
             print(" ".join(line1))
             print(" ".join(line2))
