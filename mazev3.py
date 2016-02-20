@@ -9,7 +9,8 @@ def play():
     line3 = [".", ".", ".", ".", "."]
     line4 = ["W", "W", "W", "W", "."]
     line5 = ["@", ".", ".", ".", "."]    
-    hasKey = 0    
+    hasKey = 0
+    isDead = 0    
     while line5[0] != "e":
         print(" ".join(line1))
         print(" ".join(line2))
@@ -71,7 +72,9 @@ def play():
             line5[3] = "."
         elif line5[4] == "e":        
             coordinates = 5, 5 
-            line5[4] = "."     #end section a - this part looks for e on the table, records the coordinates, then erases it
+            line5[4] = "."
+        
+        #end section a - this part looks for e on the table, records the coordinates, then erases it
         control = input("> ")  #briefs for input
         if control == "w":     #begin section b
             coordinates = coordinates[0], coordinates[1] - 1
@@ -81,7 +84,7 @@ def play():
             coordinates = coordinates[0], coordinates[1] + 1
         elif control == "d":
             coordinates = coordinates[0] + 1, coordinates[1]
-        else:
+        else:     
             return "What am I supposed to do with that? Move you diagonally?" #end section b - this part takes the coordinates and adds to the tuple according to movement. if invalid, just states that it's invalid.
         if coordinates == (1, 1):  #begin section c             
             line1[0] = "e"
@@ -124,7 +127,10 @@ def play():
         elif coordinates == (4, 5):       
             line5[3] = "e"
         elif coordinates == (5, 5):        
-            line5[4] = "e"         #end section c - looks for changed coordinates, changes . to e
+            line5[4] = "e"   
+        else:
+            line1[4] = "e"
+            print("Invalid move. In a perfect world, those W's would have been exquisitely illustrated spikes. Alas, we're stuck in this 5x5 ascii prison. At least now you'll be here a bit longer.")
         if coordinates[0] == 0:
             print("Invalid move. In a perfect world, you'd have fallen into an impecabbly animated pit of lava around the maze. Alternatively, you've fallen outside of this 5 x 5 ascii set of lists.")
             coordinates = (5, 1)
