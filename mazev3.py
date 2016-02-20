@@ -72,8 +72,7 @@ def play():
             line5[3] = "."
         elif line5[4] == "e":        
             coordinates = 5, 5 
-            line5[4] = "."
-        
+            line5[4] = "."        
         #end section a - this part looks for e on the table, records the coordinates, then erases it
         control = input("> ")  #briefs for input
         if control == "w":     #begin section b
